@@ -83,10 +83,8 @@
       {% if (filtering) { %}
         <th>
           <div class="btn-group" role="group">
-            <button type="button" class="filter-btn btn btn-default active"
-            data-toggle="tooltip" data-placement="bottom"
-            title="Matches found"><span id="filtered-total" class="badge">{{ total }}</span></button>
-            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="filter-btn btn btn-default active" data-toggle="tooltip" data-placement="top" title="Matches found"><span id="filtered-total" class="badge">{{ total }}</span></button>
+            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="top" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
           </div>
         </th>
         <th class="form-group"><input id="name-input" class="form-control" type="text" placeholder="Name" value="{{ name }}"></th>
@@ -97,8 +95,8 @@
       {% } else { %}
         <th>
           <div class="btn-group" role="group">
-            <button type="button" class="filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Apply&nbsp;filters"><span class="glyphicon glyphicon-search"></button>
-            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="filter-btn btn btn-default" data-toggle="tooltip" data-placement="top" title="Apply&nbsp;filters"><span class="glyphicon glyphicon-search"></button>
+            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="top" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
           </div>
         </th>
         <th>Name</th> 
