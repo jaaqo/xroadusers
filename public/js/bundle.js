@@ -141,6 +141,7 @@ var AllView = Backbone.View.extend({
     // Init data
     var initialMembers = $('.table').attr('data-members');
     this.collection.reset(JSON.parse(initialMembers));
+    $('.table').attr('data-members', '');
   },
   render: function () {
     this.$el.empty();
