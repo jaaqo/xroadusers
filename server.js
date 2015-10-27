@@ -10,8 +10,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
+var URI = process.env.SS_URI;
+
 app.get('/', function (req, res) {
-  request('http://10.35.49.153/listClients', function (error, response, body) {
+  request('http://' + SS_URI  + '/listClients', function (error, response, body) {
     res.setHeader('Content-Type', 'text/html');
 
     if (!error && response.statusCode == 200) {
@@ -23,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/all', function (req, res) {
-  request('http://10.35.49.153/listClients', function (error, response, body) {
+  request('http://' + SS_URI  + '/listClients', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var members = parseMembers(parser.toJson(body));
       res.setHeader('Content-Type', 'application/json');
