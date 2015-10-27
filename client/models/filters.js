@@ -6,10 +6,13 @@ var Filters = Backbone.Model.extend({
 
   defaults: {
     name: '',
+    filtering: false,
+    total: 0,
     memberClass: '',
     memberCode: '',
     objectType: '',
     xRoadInstance: '',
+    subsystemCode: ''
   }
 
 });

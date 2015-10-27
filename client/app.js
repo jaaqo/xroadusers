@@ -8,7 +8,6 @@ var AllView = require('./views/all.js');
 var members = new Members();
 var allView = new AllView({collection: members});
 
-
 $(document).ready(function () {
     allView.render();
 });

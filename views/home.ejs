@@ -10,16 +10,37 @@
     <style>
       .child { display: none; }
       .member { font-weight: bold; }
-      .arrow { text-align: center; } 
-      .filters { display: none; font-weight: bold; vertical-align: middle !important; }
+      .arrow { text-align: center; width: 130px;} 
+      .filters { font-weight: bold;}
+      .filters th { vertical-align: middle !important; }
+      .filters-open { background: lightgrey; }
+      .filters-total { display: none; }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Members</h1>
-      <table class="table" data-members="<%= JSON.stringify(members) %>">
+      <div class="page-header">
+        <h1>XRoad <small>FI-DEV</small></h1>
+      </div>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" src="/img/logo.png" alt="Cybercom Logo">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">SecurityServer's Metadata</h4>
+          <p>All of the Members and their Subsystems are queryable through any
+          XRoad SecurityServer's Metaservice.<br />Data represented in the
+          following table is retrieved from the aforementioned Metaservices.<br />
+          Other information such as methods available of a specific service
+          are also available.</p>
+        </div>
+      </div>
+      <hr />
+      <table class="table table-hover" data-members="<%= JSON.stringify(members) %>">
         <thead class="members-table-head">
-          <tr class="flters">
+          <tr class="filters">
             <th></th>
             <th>Name</th> 
             <th>MemberClass</th> 
@@ -53,28 +74,44 @@
       <td>{{ subsystemCode }}</td>
     </script>
     <script type="text/template" id="filters-template">
+      
+      <tr class="filters">
       {% if (filtering) { %}
-      <tr class="filters">
-        <th></th>
-        <th><input type="text" placeholder="Name"></th>
-        <th><input type="text" placeholder="MemberClass"></th>
-        <th><input type="text" placeholder="MemberCode"></th>
-        <th><input type="text" placeholder="ObjectType"></th>
-        <th><input type="text" placeholder="SubsystemCode"></th>
-      </tr>
+        <th>
+          <div class="btn-group" role="group">
+            <button type="button" class="filter-btn btn btn-default active"
+            data-toggle="tooltip" data-placement="bottom"
+            title="Matches found"><span id="filtered-total" class="badge">{{ total }}</span></button>
+            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
+          </div>
+        </th>
+        <th class="form-group"><input id="name-input" class="form-control" type="text" placeholder="Name" value="{{ name }}"></th>
+        <th class="form-group"><input id="memberclass-input" class="form-control" type="text" placeholder="MemberClass" value="{{ memberClass }}"></th>
+        <th class="form-group"><input id="membercode-input" class="form-control" type="text" placeholder="MemberCode" value="{{ memberCode }}"></th>
+        <th class="form-group">ObjectType</th>
+        <th class="form-group">SubsystemCode</th>
       {% } else { %}
-      <tr class="filters">
-        <th></th>
+        <th>
+          <div class="btn-group" role="group">
+            <button type="button" class="filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Apply&nbsp;filters"><span class="glyphicon glyphicon-search"></button>
+            <button type="button" class="reset-filter-btn btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Reset&nbsp;filters"><span class="glyphicon glyphicon-trash"></span></button>
+          </div>
+        </th>
         <th>Name</th> 
-        <th>memberClass</th> 
-        <th>memberCode</th> 
-        <th>objectType</th> 
-        <th>subsystemCode</th> 
-      </tr> 
+        <th>MemberClass</th> 
+        <th>MemberCode</th> 
+        <th>ObjectType</th> 
+        <th>SubsystemCode</th> 
       {% } %}
+      </tr> 
     </script>
     <script type="text/javascript" src="/js/bundle.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+      }); 
+    </script>
   </body>
 </html>
