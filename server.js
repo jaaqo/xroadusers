@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
-var URI = process.env.SS_URI;
+var SS_URI = process.env.SS_URI;
 
 app.get('/', function (req, res) {
   request('http://' + SS_URI  + '/listClients', function (error, response, body) {
