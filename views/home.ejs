@@ -10,7 +10,9 @@
     <style>
       .child { display: none; }
       .member { font-weight: bold; }
-      .arrow { text-align: center; width: 130px;} 
+      .arrow { 
+        text-align: center; width: 130px;
+      } 
       .filters { font-weight: bold;}
       .filters th { vertical-align: middle !important; }
       .filters-open { background: lightgrey; }
@@ -38,20 +40,22 @@
         </div>
       </div>
       <hr />
-      <table class="table table-hover table-responsive" data-members="<%= JSON.stringify(members) %>">
-        <thead class="members-table-head">
-          <tr class="filters">
-            <th></th>
-            <th>Name</th> 
-            <th>MemberClass</th> 
-            <th>MemberCode</th> 
-            <th>ObjectType</th> 
-            <th>SubsystemCode</th> 
-          </tr> 
-        </thead> 
-        <tbody class="members-table-body">
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-hover" data-members="<%= JSON.stringify(members) %>">
+          <thead class="members-table-head">
+            <tr class="filters">
+              <th></th>
+              <th>Name</th> 
+              <th>MemberClass</th> 
+              <th>MemberCode</th> 
+              <th>ObjectType</th> 
+              <th>SubsystemCode</th> 
+            </tr> 
+          </thead> 
+          <tbody class="members-table-body">
+          </tbody>
+        </table>
+      </div>
     </div>
     <script type="text/template" id="member-template">
       <td class="arrow">
